@@ -1,6 +1,13 @@
 # wai-example-mysql
 
-## prepare example database
+## Preparation for Mac users
+```
+$ brew install pcre
+$ brew install jq
+$ brew install mysql
+```
+
+## Prepare example database
 ```
 $ mysql -u root -p
 mysql> CREATE DATABASE wai_exam;
@@ -9,47 +16,42 @@ mysql> GRANT ALL PRIVILEGES ON wai_exam.* TO wai_exam_admin@'%';
 mysql> exit
 ```
 
-## prepare example data
+## Prepare example data
 ```
-mysql -h localhost -D wai_exam -u wai_exam_admin -p
+$ mysql -h localhost -D wai_exam -u wai_exam_admin -p
 mysql> source sql/create.sql
 mysql> source sql/insert.sql
+mysql> exit
 ```
 
-## for Mac user
-```
-$ brew install pcre
-$ brew install mysql
-```
-
-## build
+## Build
 ```
 $ stack build
 ```
 
-## install
+## Install
 ```
 $ stack install
 ```
 
-## execute
+## Execute
 ```
 $ ~/.local/bin/wai-example-mysql-exe 0.0.0.0 9999
 ```
 
-## run as script
+## Run as script
 ```
 $ cd app
 $ stack runhaskell Main.hs 0.0.0.0 9999
 ```
 
-## run in REPL
+## Run in REPL
 ```
 $ stack repl
 *Main Data JSON MySQL> :main 0.0.0.0 9999 
 ```
 
-## request sample for genre
+## Request sample for genre
 ```
 curl -X POST \
   -d title="ジャンル4" \
@@ -66,7 +68,7 @@ curl -X GET \
 
 ```
 
-## request sample for tag
+## Request sample for tag
 ```
 curl -X POST \
   -d title="タグ4" \
@@ -83,7 +85,7 @@ curl -X GET \
 
 ```
 
-## request sample for look
+## Request sample for look
 ```
 curl -X POST \
   -d title="コーデ6タイトル" \
