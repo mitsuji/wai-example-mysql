@@ -9,14 +9,14 @@ instance ToJSON Genre where
   toJSON (Genre id t ls) =
     object ["id" .= id
            ,"title" .= t
-           ,"lools" .= ls
+           ,"looks" .= ls
            ]
 
 instance ToJSON Tag where
   toJSON (Tag id t ls) =
     object ["id" .= id
            ,"title" .= t
-           ,"lools" .= ls
+           ,"looks" .= ls
            ]
 
 instance ToJSON Look where

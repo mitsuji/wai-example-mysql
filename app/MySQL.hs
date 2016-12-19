@@ -204,7 +204,7 @@ select_tag_for_looks conn ls = do
     ORDER BY look_id, tag_id
   |] $ Only $ In $ map lookId ls
   return $ Map.fromList
-         $ map (\xxs@((LookHasTag id _):_) -> (id,map (\(LookHasTag _ tags) -> tags) xxs))
+         $ map (\xxs@((LookHasTag id _):_) -> (id,map (\(LookHasTag _ tag) -> tag) xxs))
          $ groupBy (\(LookHasTag id1 _) (LookHasTag id2 _) -> id1 == id2) xs
 
 
